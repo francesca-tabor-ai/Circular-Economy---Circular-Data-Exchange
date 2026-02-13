@@ -1,8 +1,9 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { createKaiChat } from '../services/kaiService';
+import { createKaiChat, ApiKeyError } from '../services/kaiService';
 import { Message } from '../types';
 import { Chat, GenerateContentResponse } from '@google/genai';
+import { hasApiKey } from '../utils/apiKeyCheck';
 
 type View = 'dashboard' | 'ledger' | 'verification' | 'buyer' | 'about';
 
@@ -54,8 +55,12 @@ const KaiIntelligence: React.FC<KaiIntelligenceProps> = ({ isOpen, onClose, curr
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!chatRef.current) {
-      chatRef.current = createKaiChat();
+    if (!chatRef.current && hasApiKey()) {
+      try {
+        chatRef.current = createKaiChat();
+      } catch (error) {
+        console.error("Failed to create Kai chat:", error);
+      }
     }
   }, []);
 
@@ -67,7 +72,42 @@ const KaiIntelligence: React.FC<KaiIntelligenceProps> = ({ isOpen, onClose, curr
 
   const handleSend = async (overrideInput?: string) => {
     const textToSend = overrideInput || input;
-    if (!textToSend.trim() || !chatRef.current) return;
+    if (!textToSend.trim()) return;
+
+    // Check for API key before proceeding
+    if (!hasApiKey()) {
+      setMessages(prev => [...prev, 
+        { role: 'user', text: textToSend, timestamp: new Date() },
+        { 
+          role: 'model', 
+          text: 'Google API key is required. Please set GEMINI_API_KEY in your .env.local file to use this feature.', 
+          timestamp: new Date() 
+        }
+      ]);
+      setInput('');
+      return;
+    }
+
+    // Initialize chat if needed
+    if (!chatRef.current) {
+      try {
+        chatRef.current = createKaiChat();
+      } catch (error) {
+        if (error instanceof ApiKeyError) {
+          setMessages(prev => [...prev, 
+            { role: 'user', text: textToSend, timestamp: new Date() },
+            { 
+              role: 'model', 
+              text: 'Google API key is required. Please set GEMINI_API_KEY in your .env.local file to use this feature.', 
+              timestamp: new Date() 
+            }
+          ]);
+          setInput('');
+          return;
+        }
+        throw error;
+      }
+    }
 
     const userMsg: Message = { role: 'user', text: textToSend, timestamp: new Date() };
     setMessages(prev => [...prev, userMsg]);
@@ -91,7 +131,15 @@ const KaiIntelligence: React.FC<KaiIntelligenceProps> = ({ isOpen, onClose, curr
       }
     } catch (error) {
       console.error("Kai interrupted:", error);
-      setMessages(prev => [...prev, { role: 'model', text: "I apologize, my connection to the protocol was momentarily interrupted. Could you repeat that?", timestamp: new Date() }]);
+      if (error instanceof ApiKeyError) {
+        setMessages(prev => [...prev, { 
+          role: 'model', 
+          text: 'Google API key is required. Please set GEMINI_API_KEY in your .env.local file to use this feature.', 
+          timestamp: new Date() 
+        }]);
+      } else {
+        setMessages(prev => [...prev, { role: 'model', text: "I apologize, my connection to the protocol was momentarily interrupted. Could you repeat that?", timestamp: new Date() }]);
+      }
     } finally {
       setIsTyping(false);
     }

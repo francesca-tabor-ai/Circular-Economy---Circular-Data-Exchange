@@ -1,11 +1,13 @@
 
 import React, { useState } from 'react';
 import { MaterialBatch, VerificationResult } from '../types';
-import { verifyBatchCircularity } from '../services/geminiService';
+import { verifyBatchCircularity, ApiKeyError } from '../services/geminiService';
+import { hasApiKey } from '../utils/apiKeyCheck';
 
 const VerificationEngine: React.FC = () => {
   const [isVerifying, setIsVerifying] = useState(false);
   const [result, setResult] = useState<VerificationResult | null>(null);
+  const [apiKeyError, setApiKeyError] = useState<string | null>(null);
 
   const mockBatch: MaterialBatch = {
     id: 'temp-123',
@@ -19,10 +21,26 @@ const VerificationEngine: React.FC = () => {
   };
 
   const handleVerify = async () => {
+    if (!hasApiKey()) {
+      setApiKeyError('Google API key is required. Please set GEMINI_API_KEY in your .env.local file to use this feature.');
+      return;
+    }
+
+    setApiKeyError(null);
     setIsVerifying(true);
-    const verification = await verifyBatchCircularity(mockBatch);
-    setResult(verification);
-    setIsVerifying(false);
+    try {
+      const verification = await verifyBatchCircularity(mockBatch);
+      setResult(verification);
+    } catch (error) {
+      if (error instanceof ApiKeyError) {
+        setApiKeyError(error.message);
+      } else {
+        setApiKeyError('Verification failed. Please try again.');
+        console.error("Verification error:", error);
+      }
+    } finally {
+      setIsVerifying(false);
+    }
   };
 
   return (
@@ -77,6 +95,11 @@ const VerificationEngine: React.FC = () => {
               </div>
             </div>
             
+            {apiKeyError && (
+              <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 mb-4">
+                <p className="text-sm text-amber-800 font-medium">{apiKeyError}</p>
+              </div>
+            )}
             <button 
               onClick={handleVerify}
               disabled={isVerifying}

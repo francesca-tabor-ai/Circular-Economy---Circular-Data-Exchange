@@ -1,10 +1,23 @@
 
 import { GoogleGenAI, Type } from "@google/genai";
 import { MaterialBatch, VerificationResult } from "../types";
+import { hasApiKey, getApiKeyError } from "../utils/apiKeyCheck";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+const apiKey = process.env.API_KEY || process.env.GEMINI_API_KEY || '';
+const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
+
+export class ApiKeyError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'ApiKeyError';
+  }
+}
 
 export const verifyBatchCircularity = async (batch: MaterialBatch): Promise<VerificationResult> => {
+  if (!hasApiKey() || !ai) {
+    throw new ApiKeyError(getApiKeyError());
+  }
+
   const prompt = `Analyze this circular material batch data and provide a verification report.
     Batch Details: ${JSON.stringify(batch)}
     
@@ -36,11 +49,6 @@ export const verifyBatchCircularity = async (batch: MaterialBatch): Promise<Veri
     return JSON.parse(response.text.trim()) as VerificationResult;
   } catch (error) {
     console.error("Gemini verification failed", error);
-    return {
-      score: 75,
-      integrityInsights: "Manual verification fallback active. Material matches baseline circular standards.",
-      complianceStatus: 'Passed',
-      suggestedPremium: "+8.5%"
-    };
+    throw error;
   }
 };

@@ -1,7 +1,9 @@
 
 import { GoogleGenAI, Chat } from "@google/genai";
+import { hasApiKey, getApiKeyError } from "../utils/apiKeyCheck";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+const apiKey = process.env.API_KEY || process.env.GEMINI_API_KEY || '';
+const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
 
 const KAI_SYSTEM_INSTRUCTION = `
 You are Dr. Kai Navarro, the founder of CDX (Circular Data Exchange).
@@ -20,7 +22,18 @@ Never act like a typical AI support bot. You are the founder offering architectu
 When asked about batches or circularity, think in terms of "Systems Transition" and "Coordination Protocols".
 `;
 
+export class ApiKeyError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'ApiKeyError';
+  }
+}
+
 export const createKaiChat = (): Chat => {
+  if (!hasApiKey() || !ai) {
+    throw new ApiKeyError(getApiKeyError());
+  }
+  
   return ai.chats.create({
     model: 'gemini-3-pro-preview',
     config: {
