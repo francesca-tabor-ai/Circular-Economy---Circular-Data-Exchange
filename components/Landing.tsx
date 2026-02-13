@@ -68,10 +68,10 @@ const Landing: React.FC<LandingProps> = ({ onNavigateToDashboard }) => {
             <span className="text-white/90">But circular only works if it's trusted.</span>
           </h1>
           <p className="text-xl sm:text-2xl text-white/90 mb-16 font-normal leading-relaxed">
-            Build, prove, and sell verified circular materials
+            The platform built exclusively for circular economy operators
           </p>
           <p className="text-lg text-white/80 mb-16 max-w-2xl mx-auto leading-relaxed">
-            We help circular materials operators prove their materials are truly circular, so they can win better contracts, enter regulated markets faster, and capture premium pricing.
+            Built specifically for circular materials operators — recyclers, recovery facilities, and remanufacturers. Prove your materials are truly circular, win better contracts, enter regulated markets faster, and capture premium pricing.
           </p>
           
           <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-10 mb-16 max-w-2xl mx-auto transition-all duration-300 hover:bg-white/15 hover:border-white/30 transform hover:scale-[1.02]">
@@ -79,10 +79,10 @@ const Landing: React.FC<LandingProps> = ({ onNavigateToDashboard }) => {
               <strong>Hi, I'm Dr. Kai Navarro.</strong>
             </p>
             <p className="text-base text-white/90 leading-relaxed">
-              I build coordination infrastructure for the physical economy — systems that help materials, assets, and value move transparently across supply chains.
+              I build coordination infrastructure exclusively for the circular economy — systems that help circular materials, assets, and value move transparently across circular supply chains.
             </p>
             <p className="text-base text-white/90 leading-relaxed mt-4">
-              This platform exists to help you turn circular performance into trusted, tradable data.
+              This platform exists exclusively to help circular economy operators turn their performance into trusted, tradable data.
             </p>
           </div>
 
@@ -117,14 +117,14 @@ const Landing: React.FC<LandingProps> = ({ onNavigateToDashboard }) => {
       <section className="py-24 px-6 sm:px-8 lg:px-12 bg-slate-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight mb-8 text-center">
-            Circular materials are growing.
+            The circular economy is growing.
             <br />
-            <span className="text-slate-700">Trusted circular proof is still broken.</span>
+            <span className="text-slate-700">Trusted circular proof infrastructure is still broken.</span>
           </h2>
           
           <div className="grid md:grid-cols-2 gap-16 mt-20">
             <div>
-              <h3 className="text-xl font-bold text-slate-900 mb-8">Today, most circular operators rely on:</h3>
+              <h3 className="text-xl font-bold text-slate-900 mb-8">Today, circular economy operators rely on:</h3>
               <ul className="space-y-5">
                 <li className="flex items-start gap-3">
                   <span className="text-slate-500 mt-1">•</span>
@@ -169,8 +169,8 @@ const Landing: React.FC<LandingProps> = ({ onNavigateToDashboard }) => {
           </div>
           
           <p className="text-center text-lg text-slate-600 font-normal mt-16 leading-relaxed">
-            Circular supply is growing.<br />
-            Trusted circular data infrastructure hasn't caught up.
+            The circular economy is growing.<br />
+            But trusted circular data infrastructure built exclusively for circular operators hasn't caught up.
           </p>
         </div>
       </section>
@@ -179,10 +179,10 @@ const Landing: React.FC<LandingProps> = ({ onNavigateToDashboard }) => {
       <section className="py-24 px-6 sm:px-8 lg:px-12">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight mb-6 text-center">
-            Circular data infrastructure — built for the physical economy
+            Circular data infrastructure — built exclusively for the circular economy
           </h2>
           <p className="text-xl text-slate-600 text-center mb-20 font-normal leading-relaxed">
-            Our platform helps you:
+            The only platform designed exclusively for circular economy operators:
           </p>
           
           <div className="grid md:grid-cols-3 gap-8 mb-20">
@@ -196,14 +196,14 @@ const Landing: React.FC<LandingProps> = ({ onNavigateToDashboard }) => {
             <div className="bg-white p-10 rounded-2xl border border-slate-200 cdx-shadow hover:cdx-shadow-lg transition-all duration-300">
               <h3 className="text-2xl font-bold text-slate-900 mb-5">Verify</h3>
               <p className="text-slate-600 leading-relaxed">
-                Generate circular proof, chain-of-custody records, and audit-ready data automatically.
+                Generate verifiable circular economy proof, chain-of-custody records, and audit-ready data automatically.
               </p>
             </div>
             
             <div className="bg-white p-10 rounded-2xl border border-slate-200 cdx-shadow hover:cdx-shadow-lg transition-all duration-300">
               <h3 className="text-2xl font-bold text-slate-900 mb-5">Monetise</h3>
               <p className="text-slate-600 leading-relaxed">
-                Share verified circular data directly with buyers and unlock premium supply positioning.
+                Share verified circular economy data directly with buyers and unlock premium supply positioning.
               </p>
             </div>
           </div>
@@ -221,7 +221,7 @@ const Landing: React.FC<LandingProps> = ({ onNavigateToDashboard }) => {
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-slate-600 font-semibold">✓</span>
-                <span className="text-slate-700 leading-relaxed">Higher material pricing potential</span>
+                <span className="text-slate-700 leading-relaxed">Higher circular material pricing potential</span>
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-slate-600 font-semibold">✓</span>
@@ -308,7 +308,7 @@ const Landing: React.FC<LandingProps> = ({ onNavigateToDashboard }) => {
             Turn circular performance into commercial advantage
           </h2>
           <p className="text-xl text-slate-600 text-center mb-12 font-normal leading-relaxed">
-            With verified circular data, you can:
+            With verified circular economy data, you can:
           </p>
           
           <div className="bg-white border border-slate-200 rounded-2xl p-12 space-y-5">
@@ -354,13 +354,13 @@ const Landing: React.FC<LandingProps> = ({ onNavigateToDashboard }) => {
               <p className="text-slate-700 leading-relaxed">How to structure your traceability data</p>
             </div>
             <div className="bg-slate-50 p-8 rounded-xl border border-slate-200">
-              <p className="text-slate-700 leading-relaxed">How buyers will evaluate circular proof</p>
+              <p className="text-slate-700 leading-relaxed">How buyers will evaluate circular economy proof</p>
             </div>
             <div className="bg-slate-50 p-8 rounded-xl border border-slate-200">
               <p className="text-slate-700 leading-relaxed">How regulations are likely to shape procurement</p>
             </div>
             <div className="bg-slate-50 p-8 rounded-xl border border-slate-200">
-              <p className="text-slate-700 leading-relaxed">How circular markets are evolving globally</p>
+              <p className="text-slate-700 leading-relaxed">How circular economy markets are evolving globally</p>
             </div>
             <div className="bg-slate-50 p-8 rounded-xl border border-slate-200 md:col-span-2">
               <p className="text-slate-700 leading-relaxed">How to position your materials strategically</p>

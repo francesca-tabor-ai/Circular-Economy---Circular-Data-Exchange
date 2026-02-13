@@ -14,7 +14,7 @@ const About: React.FC = () => {
           Building the Infrastructure for Trusted Circular Materials
         </h1>
         <p className="text-xl text-slate-500 leading-relaxed font-medium max-w-2xl">
-          The world is moving toward circular supply chains — but the infrastructure to prove what’s truly circular is still broken.
+          The circular economy is growing — but the infrastructure built exclusively for circular operators to prove what's truly circular is still broken.
         </p>
       </section>
 
@@ -35,10 +35,10 @@ const About: React.FC = () => {
           </div>
           <h3 className="text-teal-600 font-bold uppercase text-[10px] tracking-widest mb-4">Our Mission</h3>
           <p className="text-lg font-bold text-slate-800 leading-snug">
-            We help circular materials companies prove, protect, and increase the value of their materials through trusted, verifiable circular data.
+            We help circular economy operators prove, protect, and increase the value of their materials through trusted, verifiable circular data. Built exclusively for the circular economy.
           </p>
           <div className="mt-8 pt-8 border-t border-slate-200">
-            <p className="text-sm text-slate-400 font-medium">Goal: Make circular proof as reliable, tradable, and valuable as the materials themselves.</p>
+            <p className="text-sm text-slate-400 font-medium">Goal: Make circular economy proof as reliable, tradable, and valuable as the materials themselves.</p>
           </div>
         </div>
       </section>
@@ -49,7 +49,7 @@ const About: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             { title: "Track", desc: "Material flows from input to output with precision." },
-            { title: "Generate", desc: "Verifiable circular proof and chain-of-custody records." },
+            { title: "Generate", desc: "Verifiable circular economy proof and chain-of-custody records." },
             { title: "Share", desc: "Trusted data directly with buyers, partners, and regulators." },
             { title: "Unlock", desc: "Premium pricing and faster procurement approval cycles." }
           ].map((item, i) => (
@@ -68,7 +68,7 @@ const About: React.FC = () => {
           <div className="max-w-xl">
             <h2 className="text-3xl font-bold tracking-tight mb-4">Who We Build For</h2>
             <p className="text-slate-400 leading-relaxed">
-              We focus on the companies doing the hard, real-world work of circularity.
+              We focus exclusively on the companies operating in the circular economy — doing the hard, real-world work of circularity.
             </p>
           </div>
           
@@ -114,7 +114,7 @@ const About: React.FC = () => {
         <div className="space-y-8">
           <h2 className="text-3xl font-bold text-slate-900 tracking-tight">Why This Matters</h2>
           <p className="text-slate-600 leading-relaxed">
-            Global supply chains are under pressure to prove sustainability, reduce risk, and comply with new regulations. At the same time, circular material producers are being asked to prove more — with fewer tools and less standardisation.
+            Global supply chains are under pressure to prove sustainability, reduce risk, and comply with new regulations. At the same time, circular economy operators are being asked to prove more — with fewer tools and less standardisation. This platform exists exclusively to solve that problem for circular economy operators.
           </p>
           <div className="space-y-4">
             <div className="flex items-center gap-3">
@@ -136,13 +136,13 @@ const About: React.FC = () => {
           <div className="space-y-4">
              <h3 className="text-xl font-bold text-slate-900 tracking-tight">Our Belief</h3>
              <p className="text-slate-500 leading-relaxed">
-               We believe the future of industry is transparent, verifiable, collaborative, and circular by default. And we believe the companies already doing the work should capture more of the value.
+               We believe the future of industry is transparent, verifiable, collaborative, and circular by default. And we believe circular economy operators — the companies already doing the work — should capture more of the value. This platform is built exclusively for them.
              </p>
           </div>
           <div className="p-8 bg-slate-50 rounded-3xl border border-slate-100">
              <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Where We're Going</h3>
              <p className="text-sm font-bold text-slate-800 leading-relaxed">
-               An open, interoperable infrastructure layer that helps circular supply chains scale globally — without gatekeepers.
+               An open, interoperable infrastructure layer built exclusively for the circular economy — helping circular supply chains scale globally without gatekeepers.
              </p>
           </div>
         </div>

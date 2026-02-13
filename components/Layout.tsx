@@ -79,7 +79,7 @@ const Layout: React.FC<LayoutProps> = ({ children, currentView, setView }) => {
             <h2 className="text-2xl font-bold text-slate-900 tracking-tight mb-2">
               {currentView.replace('-', ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
             </h2>
-            <p className="text-sm text-slate-500 font-normal leading-relaxed">Verify and monetize circular material flows.</p>
+            <p className="text-sm text-slate-500 font-normal leading-relaxed">The platform built exclusively for circular economy operators.</p>
           </div>
           <div className="flex items-center gap-6">
             <div className="flex -space-x-2">
