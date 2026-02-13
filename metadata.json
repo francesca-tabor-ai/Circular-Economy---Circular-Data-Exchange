@@ -1,0 +1,7 @@
+{
+  "name": "Circular Data Exchange (CDX)",
+  "description": "An open protocol and platform for tracking, verifying, and monetizing circular material flows across global supply chains. Unlock premium pricing by proving material circularity.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
