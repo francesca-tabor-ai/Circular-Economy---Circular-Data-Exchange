@@ -8,16 +8,105 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+      /* Typography System - Humanist Sans-Serif */
       body { 
-        font-family: 'Inter', sans-serif; 
+        font-family: 'Inter', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        letter-spacing: -0.011em;
+        letter-spacing: -0.01em;
+        line-height: 1.6;
       }
+      
+      /* Headlines: Large, bold, confident, sentence-case */
+      h1, h2, h3, h4, h5, h6 {
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+      }
+      
+      /* Body text: Regular/light weights, generous line height */
+      p, li, span {
+        line-height: 1.7;
+        font-weight: 400;
+      }
+      
+      /* UI & numbers: Clear, neutral, optimized for data readability */
+      .data-text, .number {
+        font-variant-numeric: tabular-nums;
+        letter-spacing: -0.01em;
+      }
+      
+      /* Signature multi-colour gradient - used sparingly */
       .cdx-gradient {
         background: linear-gradient(90deg, #fbbf24 0%, #34d399 30%, #22d3ee 60%, #3b82f6 100%);
+      }
+      
+      /* Subtle motion and depth */
+      .cdx-shadow {
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+      }
+      
+      .cdx-shadow-lg {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      }
+      
+      /* Smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      /* Micro interaction animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .animate-in {
+        animation: fadeInUp 0.6s ease-out forwards;
+      }
+      
+      .fade-in {
+        animation: fadeInUp 0.6s ease-out forwards;
+      }
+      
+      .slide-in-from-bottom-2 {
+        animation: fadeInUp 0.7s ease-out forwards;
+      }
+      
+      .slide-in-from-bottom-4 {
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+      
+      /* Hover effects for interactive elements */
+      button, a {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      /* Focus states for accessibility */
+      button:focus-visible, a:focus-visible {
+        outline: 2px solid #3b82f6;
+        outline-offset: 2px;
+      }
+      
+      /* Rounded UI components */
+      .cdx-rounded {
+        border-radius: 1rem;
+      }
+      
+      .cdx-rounded-lg {
+        border-radius: 1.5rem;
+      }
+      
+      .cdx-rounded-xl {
+        border-radius: 2rem;
       }
     </style>
   <script type="importmap">
@@ -33,7 +122,7 @@
 </script>
 <link rel="stylesheet" href="/index.css">
 </head>
-  <body class="bg-white text-slate-900 selection:bg-teal-100">
+  <body class="bg-white text-slate-900 selection:bg-slate-200">
     <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>

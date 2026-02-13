@@ -12,11 +12,17 @@ const data = [
 ];
 
 const StatCard: React.FC<{ title: string; value: string; trend: string; isPositive: boolean }> = ({ title, value, trend, isPositive }) => (
-  <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-slate-100 hover:shadow-xl hover:shadow-slate-100 transition-all duration-300">
-    <h3 className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-4">{title}</h3>
+  <div className="bg-white p-10 rounded-2xl cdx-shadow border border-slate-200 hover:cdx-shadow-lg hover:border-slate-300 transition-all duration-300 group cursor-pointer transform hover:-translate-y-1">
+    <h3 className="text-slate-500 text-xs font-semibold uppercase tracking-wider mb-6 transition-colors duration-300 group-hover:text-slate-600">
+      {title}
+    </h3>
     <div className="flex items-baseline justify-between">
-      <span className="text-4xl font-bold text-slate-900 tracking-tight">{value}</span>
-      <span className={`text-xs font-bold ${isPositive ? 'text-teal-600' : 'text-slate-600'}`}>
+      <span className="text-4xl font-bold text-slate-900 tracking-tight number data-text transition-transform duration-300 group-hover:scale-105">
+        {value}
+      </span>
+      <span className={`text-xs font-semibold transition-all duration-300 group-hover:translate-x-1 ${
+        isPositive ? 'text-slate-600' : 'text-slate-500'
+      }`}>
         {trend}
       </span>
     </div>
@@ -26,21 +32,30 @@ const StatCard: React.FC<{ title: string; value: string; trend: string; isPositi
 const Dashboard: React.FC = () => {
   return (
     <div className="space-y-12 animate-in fade-in slide-in-from-bottom-2 duration-700">
+      {/* Animated entrance for stats */}
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <StatCard title="Volume Tracked" value="4.2k t" trend="↑ 12.5%" isPositive={true} />
-        <StatCard title="Verified Flow" value="3.8k t" trend="↑ 18.2%" isPositive={true} />
-        <StatCard title="CO2 Avoided" value="12.5k t" trend="↑ 8.1%" isPositive={true} />
-        <StatCard title="Price Premium" value="+14.2%" trend="↑ 2.4%" isPositive={true} />
+        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500" style={{ animationDelay: '0ms' }}>
+          <StatCard title="Volume Tracked" value="4.2k t" trend="↑ 12.5%" isPositive={true} />
+        </div>
+        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500" style={{ animationDelay: '100ms' }}>
+          <StatCard title="Verified Flow" value="3.8k t" trend="↑ 18.2%" isPositive={true} />
+        </div>
+        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500" style={{ animationDelay: '200ms' }}>
+          <StatCard title="CO2 Avoided" value="12.5k t" trend="↑ 8.1%" isPositive={true} />
+        </div>
+        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500" style={{ animationDelay: '300ms' }}>
+          <StatCard title="Price Premium" value="+14.2%" trend="↑ 2.4%" isPositive={true} />
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
         {/* Main Chart */}
-        <div className="lg:col-span-2 bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100">
-          <div className="flex justify-between items-center mb-10">
+        <div className="lg:col-span-2 bg-white p-12 rounded-2xl cdx-shadow border border-slate-200">
+          <div className="flex justify-between items-center mb-12">
             <div>
-              <h3 className="text-xl font-bold text-slate-900 tracking-tight">Verification Efficiency</h3>
-              <p className="text-sm text-slate-400 font-medium">Monthly throughput of verified circular assets.</p>
+              <h3 className="text-xl font-bold text-slate-900 tracking-tight mb-2">Verification efficiency</h3>
+              <p className="text-sm text-slate-500 font-normal leading-relaxed">Monthly throughput of verified circular assets.</p>
             </div>
             <div className="flex gap-2">
               <div className="w-10 h-1 cdx-gradient rounded-full"></div>
